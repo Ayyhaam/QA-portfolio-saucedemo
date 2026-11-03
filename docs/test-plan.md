@@ -1,11 +1,12 @@
 # Test Plan – SauceDemo web shop
 
 ## 1. Purpose
-Verify that the most important user flows in the SauceDemo web shop work: login, shopping cart and checkout. The tests are automated so they can be run again after every change (regression testing).
+Verify that the most important user flows in the SauceDemo web shop work (login, shopping cart and checkout), and that the main endpoints of the JSONPlaceholder REST API return correct data and status codes. The tests are automated so they can be run again after every change (regression testing).
 
 ## 2. System under test
 - **Application:** [SauceDemo](https://www.saucedemo.com) – a public demo web shop made for test practice
 - **Browser:** Chromium (via Playwright)
+- **API:** [JSONPlaceholder](https://jsonplaceholder.typicode.com) – a free fake REST API for test practice
 
 ## 3. Scope
 | In scope | Out of scope |
@@ -14,11 +15,12 @@ Verify that the most important user flows in the SauceDemo web shop work: login,
 | Add / remove products in the cart | Security testing |
 | Sorting of products | Other browsers than Chromium |
 | Checkout flow | Mobile layout |
+| API: GET, POST, PUT, DELETE and error codes | API authentication (the test API has none) |
 
 ## 4. Test levels and types
-- **Test level:** System testing (end-to-end through the user interface)
+- **Test level:** System testing – end-to-end through the user interface, and API testing without a browser
 - **Test types:** Functional testing, positive and negative tests, regression testing
-- **Test techniques:** Equivalence partitioning (valid / invalid / locked user), error guessing (empty fields)
+- **Test techniques:** Equivalence partitioning (valid / invalid / locked user), error guessing (empty fields, an id that does not exist)
 
 ## 5. Test data
 Public demo accounts from the SauceDemo start page: `standard_user`, `locked_out_user`. No real personal data is used.
@@ -27,7 +29,7 @@ Public demo accounts from the SauceDemo start page: `standard_user`, `locked_out
 | Tool | Used for |
 |---|---|
 | Python + pytest | Writing and running the tests |
-| Playwright | Controlling the browser |
+| Playwright | Controlling the browser and sending API requests |
 | GitHub Actions | Running all tests automatically on every push (CI) |
 | GitHub Issues | Bug reports |
 

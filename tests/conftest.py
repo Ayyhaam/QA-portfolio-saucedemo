@@ -27,3 +27,14 @@ def logged_in(login_page, page):
 @pytest.fixture
 def checkout(page):
     return CheckoutPage(page)
+
+
+API_URL = "https://jsonplaceholder.typicode.com"
+
+
+@pytest.fixture
+def api(playwright):
+    """An API client (no browser) that talks to the JSONPlaceholder test API."""
+    context = playwright.request.new_context(base_url=API_URL)
+    yield context
+    context.dispose()

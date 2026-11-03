@@ -12,5 +12,12 @@
 | TC-08 | Products | Sort by price low to high | Choose "Price (low to high)" | Prices are in rising order | `test_cart.py` |
 | TC-09 | Checkout | Complete a purchase | Add product, checkout, fill in info, finish | "Thank you for your order!" | `test_checkout.py` |
 | TC-10 | Checkout | Checkout without first name | Leave first name empty, click Continue | Error: First Name is required | `test_checkout.py` |
+| TC-11 | API | Get all posts | `GET /posts` | Status 200, 100 posts | `test_api.py` |
+| TC-12 | API | Get one post | `GET /posts/1` | Status 200, post has id 1 and a title | `test_api.py` |
+| TC-13 | API | Filter posts by user | `GET /posts?userId=1` | Status 200, all posts have userId 1 | `test_api.py` |
+| TC-14 | API | Create a post | `POST /posts` with title, body, userId | Status 201, the new post is returned with an id | `test_api.py` |
+| TC-15 | API | Update a post | `PUT /posts/1` with new title | Status 200, title is updated | `test_api.py` |
+| TC-16 | API | Delete a post | `DELETE /posts/1` | Status 200 | `test_api.py` |
+| TC-17 | API | Get a post that does not exist | `GET /posts/99999` | Status 404 (Not Found) | `test_api.py` |
 
-Smoke tests (most critical): TC-01, TC-05, TC-09.
+Smoke tests (most critical): TC-01, TC-05, TC-09, TC-11.
